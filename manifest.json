@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Universal Controller Mapper",
+  "version": "1.0.0",
+  "description": "Map Xbox Controller inputs (Triggers LT/RT, Bumpers LB/RB, Joysticks, and Face Buttons) directly to Keyboard Keys with 3 custom profiles.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Universal Controller Mapper"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
